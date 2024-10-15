@@ -37,6 +37,10 @@
                     if (ctaButton) {
                         // Hide the button
                         //ctaButton.style.display = 'none';
+                        ctaButton.addEventListener('click',()=>{
+
+                            window.print("ssssdasd")
+                        })
                         iframe.src="https://ehabarlab.github.io/MindAR-Test/";
                     } else {
                         console.error('Button with id "cta-button" not found in the iframe');
