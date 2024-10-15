@@ -23,7 +23,7 @@
                     // Force iframe reload to apply the new permissions (prevent caching issues)
                     const iframeUrl = new URL(iframe.src);
                     iframeUrl.searchParams.set('v', Date.now()); // Use timestamp to prevent caching
-                    iframe.src = iframeUrl.toString();
+                   // iframe.src = iframeUrl.toString();
                     // Disable the button to prevent multiple clicks
                     e.target.onclick = null;
                     // Add confirmation text
