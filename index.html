@@ -16,29 +16,34 @@
     <button id="permissionButton">Click to fix permissions</button>
     <h2>Hi this is a test too</h2>
     <script>
+             const handleClick = (e) => {
+                    const iframe= document.getElementById("iframe1");
+                    // Set the necessary permissions in the iframe
+                    iframe.setAttribute("allow", "camera; microphone; autoplay");
+                    // Force iframe reload to apply the new permissions (prevent caching issues)
+                    const iframeUrl = new URL(iframe.src);
+                    iframeUrl.searchParams.set('v', Date.now()); // Use timestamp to prevent caching
+                    iframe.src = iframeUrl.toString();
+                    // Disable the button to prevent multiple clicks
+                    e.target.onclick = null;
+                    // Add confirmation text
+                    e.target.appendChild(document.createTextNode(' :heavy_check_mark: Permissions fixed'));
+                  //  const iframe_ = document.getElementById('iframe1');
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-     
-        const handleClick = (e) => {
-            const iframe = document.getElementById('iframe1');
-            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    // Access the button with id="cta-button" inside the iframe
+                    const ctaButton = iframeDoc.getElementById('cta-button');
 
-            // Access the button with id="cta-button" inside the iframe
-            const ctaButton = iframeDoc.getElementById('cta-button');
-
-            if (ctaButton) {
-                // Hide the button
-                //    ctaButton.style.display = 'none';
-                ctaButton.addEventListener('click', function () {
-                    iframe.src = 'https://ehabarlab.github.io/MindAR-Test/';
-
-                })
-
-            } else {
-                console.error('Button with id "cta-button" not found in the iframe');
-            }
-        };
-        // Attach the click event handler to the button
-        document.getElementById("permissionButton").addEventListener('click', handleClick);
+                    if (ctaButton) {
+                        // Hide the button
+                        ctaButton.style.display = 'none';
+                    } else {
+                        console.error('Button with id "cta-button" not found in the iframe');
+                    }
+                };
+      //  };
+                // Attach the click event handler to the button
+                document.getElementById("permissionButton").addEventListener('click', handleClick);
     
     </script>
 </body>
