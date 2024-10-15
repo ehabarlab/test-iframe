@@ -17,7 +17,7 @@
     <h2>Hi this is a test too</h2>
     <script>
 
-               const handleClick = (e) => { 
+        document.getElementById('iframe1').onload = function () {
             const iframe = document.getElementById('iframe1');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
@@ -26,15 +26,13 @@
 
             if (ctaButton) {
                 // Hide the button
-             ctaButton.addEventListener('click', function () {
-                iframe.src="https://google.com"
-             })
+              ctaButton.addEventListener('click', function () {
+                window.print("sssssssssss")
+              })
             } else {
                 console.error('Button with id "cta-button" not found in the iframe');
             }
         };
-        
-        document.getElementById("permissionButton").addEventListener('click', handleClick);
     </script>
 </body>
 
