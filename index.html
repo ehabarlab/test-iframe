@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iframe Camera Permission Test</title>
 </head>
+
 <body>
     <h1>Hi this is a test</h1>
     <!-- Iframe element with camera permissions -->
-    <iframe id="iframe1" src="https://ehabarlab.github.io/test-ad/" width="300" height="500" title="W3Schools Free Online Web Tutorials"></iframe>
+    <iframe id="iframe1" src="https://ehabarlab.github.io/test-ad/" width="300" height="500"
+        title="W3Schools Free Online Web Tutorials"></iframe>
     <!-- Button to fix permissions -->
     <button id="permissionButton">Click to fix permissions</button>
     <h2>Hi this is a test too</h2>
     <script>
-        const handleClick = (e) => {
-           const iframe = document.getElementById('iframe1');
-    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    
-    // Access the button with id="cta-button" inside the iframe
-    const ctaButton = iframeDoc.getElementById('cta-button');
-    
-    if (ctaButton) {
-      // Hide the button
-  //    ctaButton.style.display = 'none';
-  ctaButton.addEventListener('click', function() {
- iframe.src = 'https://ehabarlab.github.io/MindAR-Test/';
 
-  })
-       
-    } else {
-      console.error('Button with id "cta-button" not found in the iframe');
-    }
-  };
-  handleClick();
-         // Attach the click event handler to the button
-       // document.getElementById("permissionButton").addEventListener('click', handleClick);
+               const handleClick = (e) => { 
+            const iframe = document.getElementById('iframe1');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Access the button with id="cta-button" inside the iframe
+            const ctaButton = iframeDoc.getElementById('cta-button');
+
+            if (ctaButton) {
+                // Hide the button
+             ctaButton.addEventListener('click', function () {
+                iframe.src="https://google.com"
+             })
+            } else {
+                console.error('Button with id "cta-button" not found in the iframe');
+            }
+        };
+        
+        document.getElementById("permissionButton").addEventListener('click', handleClick);
     </script>
 </body>
+
 </html>
