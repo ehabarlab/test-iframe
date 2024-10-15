@@ -1,20 +1,33 @@
-<h1>Hi this is a test</h1>
-<iframe id="iframe1" src="https://ehabarlab.github.io/test-ad/" width="300" height="500" title="W3Schools Free Online Web Tutorials"></iframe>
-<button id="permissionButton">Click to fix permissions</button>
-<h2>Hi this is a test too</h2>
-<script>
-  const handleClick = (e) => {
-    const iframe = document.getElementById("iframe1");
-    // Set the necessary permissions in the iframe
-    iframe.setAttribute("allow", "camera; microphone; autoplay");
-    // Force iframe reload to apply the new permissions (prevent caching issues)
-    const iframeUrl = new URL(iframe.src);
-    iframeUrl.searchParams.set('v', Date.now()); // Use timestamp to prevent caching
-    iframe.src = iframeUrl.toString();
-    // Disable the button to prevent multiple clicks
-    e.target.onclick = null;
-    // Add confirmation text
-    e.target.appendChild(document.createTextNode(' :heavy_check_mark: Permissions fixed'));
-  };
-  document.getElementById("permissionButton").addEventListener('click', handleClick);
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Camera Permission Test</title>
+</head>
+<body>
+    <h1>Hi this is a test</h1>
+    <!-- Iframe element with camera permissions -->
+    <iframe id="iframe1" src="https://ehabarlab.github.io/test-ad/" width="300" height="500" title="W3Schools Free Online Web Tutorials"></iframe>
+    <!-- Button to fix permissions -->
+    <button id="permissionButton">Click to fix permissions</button>
+    <h2>Hi this is a test too</h2>
+    <script>
+        const handleClick = (e) => {
+            const iframe = document.getElementById("iframe1");
+            // Set the necessary permissions in the iframe
+            iframe.setAttribute("allow", "camera; microphone; autoplay");
+            // Force iframe reload to apply the new permissions (prevent caching issues)
+            const iframeUrl = new URL(iframe.src);
+            iframeUrl.searchParams.set('v', Date.now()); // Use timestamp to prevent caching
+            iframe.src = iframeUrl.toString();
+            // Disable the button to prevent multiple clicks
+            e.target.onclick = null;
+            // Add confirmation text
+            e.target.appendChild(document.createTextNode(' :heavy_check_mark: Permissions fixed'));
+        };
+        // Attach the click event handler to the button
+        document.getElementById("permissionButton").addEventListener('click', handleClick);
+    </script>
+</body>
+</html>
