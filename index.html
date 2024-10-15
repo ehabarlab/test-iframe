@@ -1,5 +1,16 @@
 <h1> Hi this is a test</h1>
-<iframe src="https://ehabarlab.github.io/test-ad/" width="300" height="500" title="W3Schools Free Online Web Tutorials" allow=”autoplay; camera; microphone”></iframe>
+<iframe id ="ifram1" src="https://ehabarlab.github.io/test-ad/" width="300" height="500" title="W3Schools Free Online Web Tutorials"></iframe>
 
 
 <h2> Hi this is a test too</h2>
+
+<script>
+    const handleClick = (e) => {
+        const d = document.getElementById("iframe1");
+        d.setAttribute("allow", "autoplay; camera; microphone");
+        // reset MediaRecorder permissions by changing src url
+        const iframeUrl = d.getAttribute('src');
+        d.setAttribute("src", iframeUrl + '?v=2');
+        e.target.appendChild(document.createTextNode(' ✔'));
+    }
+</script>
