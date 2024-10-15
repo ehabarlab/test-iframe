@@ -17,7 +17,8 @@
     <h2>Hi this is a test too</h2>
     <script>
 
-        document.getElementById('iframe1').onload = function () {
+     
+        const handleClick = (e) => {
             const iframe = document.getElementById('iframe1');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
@@ -26,13 +27,19 @@
 
             if (ctaButton) {
                 // Hide the button
-              ctaButton.addEventListener('click', function () {
-                window.print("sssssssssss")
-              })
+                //    ctaButton.style.display = 'none';
+                ctaButton.addEventListener('click', function () {
+                    iframe.src = 'https://ehabarlab.github.io/MindAR-Test/';
+
+                })
+
             } else {
                 console.error('Button with id "cta-button" not found in the iframe');
             }
         };
+        // Attach the click event handler to the button
+        document.getElementById("permissionButton").addEventListener('click', handleClick);
+    
     </script>
 </body>
 
