@@ -40,15 +40,17 @@
                         ctaButton.addEventListener('click',()=>{
                     console.log("sss");
                     iframe.src = "https://ehabarlab.github.io/MindAR-Test/";
+
                         })
                        // iframe.src="https://ehabarlab.github.io/MindAR-Test/";
                     } else {
                         console.error('Button with id "cta-button" not found in the iframe');
                     }
+
                 };
       //  };
                 // Attach the click event handler to the button
-                document.getElementById("permissionButton").addEventListener('click', handleClick);
+                document.getElementById("iframe1").addEventListener('mouseover', handleClick);
     
     </script>
 </body>
